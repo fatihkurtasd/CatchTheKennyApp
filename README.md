@@ -1,2 +1,1 @@
-# CatchTheKennyApp
 # CatchTheKennyGame
