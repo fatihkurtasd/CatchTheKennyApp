@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+    //Veriables
     var score = 0
     var timer=Timer()
     var counter=0
@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     var hideTimer=Timer()
     var highscore=0
     
-   
+   //imageView
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var socreLabel: UILabel!
     @IBOutlet weak var highScoreLabel: UILabel!
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         socreLabel.text = "Score : \(score)"
-        
+        //HighScore
         let storedHighScore = UserDefaults.standard.object(forKey: "highscore")
         if storedHighScore==nil{
             highscore=0
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
             highScoreLabel.text="HighScore: \(self.highscore)"
         }
         
-        
+        //İmageView for Clicked
         kenny1.isUserInteractionEnabled=true
         kenny2.isUserInteractionEnabled=true
         kenny3.isUserInteractionEnabled=true
@@ -80,19 +80,11 @@ class ViewController: UIViewController {
         timeLabel.text = "\(counter)"
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timeFunction), userInfo: nil, repeats: true)
         hideTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(hideKenny), userInfo: nil, repeats: true)
-        kennyArray=[
-            kenny1,
-            kenny2,
-            kenny3,
-            kenny4,
-            kenny5,
-            kenny6,
-            kenny7,
-            kenny8,
-            kenny9,
-        ]
+        
+        kennyArray=[kenny1,kenny2,kenny3,kenny4,kenny5,kenny6,kenny7,kenny8,kenny9]
         hideKenny()
     }
+    
     @objc func hideKenny(){
         for kenny in kennyArray{
             kenny.isHidden=true
